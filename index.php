@@ -32,7 +32,7 @@
 
     if ($resultCheck > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<li> $row['name'] . $row['price']</li>";
+            echo "<li>" . $row['name'] . $row['price'] . "<br>" . "</li>";
     }
 }
 ?>
