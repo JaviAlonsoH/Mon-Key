@@ -4,6 +4,7 @@ if (isset($_POST['submit'])) {
     
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
     $pwd = $_POST['password'];
     $pwdRepeat = $_POST['pwdRepeat'];
     $email = $_POST['email'];
@@ -13,23 +14,27 @@ if (isset($_POST['submit'])) {
     require_once 'functions.inc.php';
 
     if (emptyInputsSignUp($name, $lastname, $pwd, $pwdRepeat, $email, $country) !== false) {
-        header("Location: ../signup.php?error=emptyInput");
+        header("Location: ../signup.php?error=emptyinput");
         exit();
     }
     if (invalidEmail($email) !== false) {
-        header("Location: ../signup.php?error=invalidEmail");
+        header("Location: ../signup.php?error=invalidemail");
         exit();
     }
     if (pwdMatch($pwd, $pwdRepeat) !== false) {
         header("Location: ../signup.php?error=pwdnotmatch");
         exit();
     }
-    if (emailMatch($conn, $email) !== false) {
+    if (emailMatch($conn, $username, $email) !== false) {
         header("Location: ../signup.php?error=emailtaken");
         exit();
     }
+    if (invalidUsername($username) !== false) {
+        header("Location: ../signup.php?error=invalidusername");
+        exit();
+    }
 
-    createUser($conn, $name, $lastname, $pwd, $email, $country);
+    createUser($conn, $name, $lastname, $username, $pwd, $email, $country);
 
 
 } else {

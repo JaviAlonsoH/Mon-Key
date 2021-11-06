@@ -1,6 +1,4 @@
 
-
-
 <section class="login-form">
     <h2>Sing In</h2>
     <form action="includes/login.inc.php" method="post">
