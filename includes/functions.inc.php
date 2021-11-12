@@ -94,6 +94,18 @@ function createUser($conn, $name, $lastname, $username, $pwd, $email, $country) 
     header("Location: ../signup.php?error=none");
     exit();
 
+    function emptyInputLogin($username, $pwd) {
+
+        $result = false;
+        if (empty($name) || empty($lastname) || empty($username) || empty($pwd) || empty($email) || empty($country)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    
+    }
+
 }
 
 
