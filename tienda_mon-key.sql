@@ -69,7 +69,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `lastname`, `Username`, `password`, `country`, `email`) VALUES
+INSERT INTO `user` (`id`, `name`, `lastname`, `Username`, `password`,  `email`,`country`) VALUES
 (1, 'Sergio Rivera Anguita', 'Rivera', '', '$2y$10$LVlZAXCN.ykpWpJDX1Z9ueaVxk.mYtavdzn0Y.kTNhZtJKtsOlagC', 'sergiorivera01@gmail.com', 'España');
 
 --

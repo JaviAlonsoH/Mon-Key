@@ -11,7 +11,7 @@
         <input type="password" name="pwdRepeat" placeholder="Repeat Password">
         <input type="text" name="email" placeholder="Email">
         <input type="text" name="country" placeholder="Country">
-        <button type="submit" name="submit">Sign Up</button>
+        <button type="submit" name="submit" >Sign Up</button>
     </form>
 
     <?php

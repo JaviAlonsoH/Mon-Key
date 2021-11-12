@@ -51,6 +51,15 @@ function pwdMatch($pwd, $pwdRepeat) {
     
 }
 
+function uidExists($conn, $username, $email){
+    $sql = 'select * from user where username = ? or email = ?;';
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+        header(('location: ../singup.php?error=stmtfailed'));
+        exit();
+    }
+}
+
 function emailMatch($conn, $username, $email) {
 
     $sql = "SELECT * FROM user WHERE username = ? OR email = ?;";
@@ -93,19 +102,41 @@ function createUser($conn, $name, $lastname, $username, $pwd, $email, $country) 
     mysqli_stmt_close($stmt);
     header("Location: ../signup.php?error=none");
     exit();
+    }
 
     function emptyInputLogin($username, $pwd) {
 
         $result = false;
-        if (empty($name) || empty($lastname) || empty($username) || empty($pwd) || empty($email) || empty($country)) {
+        if (empty($username) || empty($pwd)) {
             $result = true;
         } else {
             $result = false;
         }
         return $result;
-    
     }
 
-}
+    function loginUser($conn, $username, $pwd){
+        $uidExists = uidExists($conn, $username, $username);
+
+        if($uidExists === false){
+            header('location: ../login.php?error=wronglogin');
+            exit();
+        }
+        
+        $hashedPwd = $uidExists['password'];
+        $checkPwd = password_verify($pwd, $hashedPwd);
+
+        if ($checkPwd === false) {
+         header('location: ../login.php?error=wronglogin');
+            exit();
+
+        }else if($checkPwd === true){
+            session_start();
+            $_SESSION['userid'] = $uidExists['id'];
+            $_SESSION['username'] = $uidExists['username'];
+            header('location: ../index.php');
+            exit();
+        }
+    }
 
 
