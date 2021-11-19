@@ -1,47 +1,93 @@
+<?php 
 
+include 'dbh.php';
 
+error_reporting(0);
 
-<section class="signup-form">
-    <h2>Sign Up</h2>
-    <form action="includes/signup.inc.php" method="post">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="lastname" placeholder="Last Name">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="pwdRepeat" placeholder="Repeat Password">
-        <input type="text" name="email" placeholder="Email">
-        <input type="text" name="country" placeholder="Country">
-        <button type="submit" name="submit" >Sign Up</button>
-    </form>
+session_start();
 
-    <?php
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
+}
 
-    if (isset($_GET["error"])) {
-        if ($_GET["error"] == "emptyinput") {
-            echo "<p>Fill in all fields.</p>";
+if (isset($_POST['submit'])) {
+	$name = $_POST['name'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $pwd = $_POST['password'];
+    $pwdRepeat = $_POST['pwdRepeat'];
+    $email = $_POST['email'];
+    $country = $_POST['country'];
 
-        } else if ($_GET["error"] == "invalidemail") {
-            echo "<p>Please use a valid email address.</p>";
-
-        } else if ($_GET["error"] == "pwdnotmatch") {
-            echo "<p>Passwords doesn't match.</p>";
-
-        } else if ($_GET["error"] == "emailtaken") {
-            echo "<p>This email is already in use.</p>";
-
-        } else if ($_GET["error"] == "stmtfailed") {
-            echo "<p>Oops! something went wrong...</p>";
-
-        } else if ($_GET["error"] == "usernametaken") {
-            echo "<p>This username is already in use.</p>";
-            
-        } else if ($_GET["error"] == "none") {
-            echo "<p>You have signed up successfully!</p>";
-        }
-
-    } 
+	if ($password == $pwdRepeat) {
+		$sql = "SELECT * FROM user WHERE email='$email'";
+		$result = mysqli_query($conn, $sql);
+        
+		if (!$result->num_rows > 0) {
+			$sql = "INSERT INTO user (name, lastname, username, password, country, email)
+					VALUES ('$name', '$lastname', '$username','$pwd', '$country', '$email');";
+			$result = mysqli_query($conn, $sql);
+			if ($result) {
+				echo "<script>alert('Wow! User Registration Completed.')</script>";
+				$username = "";
+				$email = "";
+				$_POST['password'] = "";
+				$_POST['pwdRepeat'] = "";
+			} else {
+				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+			}
+		} else {
+			echo "<script>alert('Woops! Email Already Exists.')</script>";
+		}
+		
+	} else {
+		echo "<script>alert('Password Not Matched.')</script>";
+	}
+}
 
 ?>
 
-</section> 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<title>Register Form - Pure Coding</title>
+</head>
+<body>
+	<div class="container">
+		<form action="" method="POST" class="login-email">
+            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
+            <div class="input-group">
+				<input type="text" placeholder="Name" name="name" value="<?php echo $name; ?>" required>
+			</div>
+            <div class="input-group">
+				<input type="text" placeholder="LastName" name="lastname" value="<?php echo $lastname; ?>" required>
+			</div>
+			<div class="input-group">
+				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
+			</div>
+			<div class="input-group">
+				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+			</div>
+			<div class="input-group">
+				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+            </div>
+            <div class="input-group">
+				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
+			</div><div class="input-group">
+				<input type="text" placeholder="Country" name="country" value="<?php echo $country; ?>" required>
+			</div>
+			<div class="input-group">
+				<button name="submit" class="btn">Register</button>
+			</div>
+			<p class="login-register-text">Have an account? <a href="index.php">Login Here</a>.</p>
+		</form>
+	</div>
+</body>
+</html>
