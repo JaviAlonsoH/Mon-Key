@@ -104,7 +104,7 @@ function createUser($conn, $name, $lastname, $username, $pwd, $email, $country) 
     exit();
     }
 
-    function emptyInputLogin($username, $pwd) {
+    function emptyInputsLogin($username, $pwd) {
 
         $result = false;
         if (empty($username) || empty($pwd)) {

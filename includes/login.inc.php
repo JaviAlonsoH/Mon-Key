@@ -2,13 +2,13 @@
 
 if (isset($_POST['submit'])) {
 
-    $username = $_POST['username'];
+    $username = $_POST['uid'];
     $pwd = $_POST["pwd"];
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
-    if (emptyInputLogin($username, $pwd) !== false ) {
+    if (emptyInputsLogin($username, $pwd) !== false ) {
         header("location: ../login.php?error=emptyinput");
         exit();
     }
