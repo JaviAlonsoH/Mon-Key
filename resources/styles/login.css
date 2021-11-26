@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    color: white;
+    font-family: "Inter";
+}
+
+main {
+    background: linear-gradient(179.59deg, #ffe600 0.39%, rgba(255, 170, 0, 0.651) 99.69%);
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+aside {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    left: 60%;
+    top: 0px;
+    background-color: black;
+}
+
+#logoLogin {
+    display: block;
+    margin-top: 280px;
+    margin-left: 180px;
+    width: 600px;
+}
+
+
+
+#enlaceReg {
+    color: #043BFF;
+}
+
+#titulo {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 100px;
+}
+
+#formulario {
+    margin-left: 100px;
+}
+
+.campos {
+    font-family: "Inter";
+    color: white;
+    border-radius: 5px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), rgba(255, 255, 255, 0.4);
+}
+
+#inputEmail {
+    margin-top: 80px;
+    width: 220px;
+    height: 30px;
+}
+
+#inputContra {
+    width: 220px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+#botonLog {
+    font-family: "Inter";
+    background: #FFB513;
+    width: 120px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 55px;
+    border-radius: 9px;
+}
