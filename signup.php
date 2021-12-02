@@ -33,6 +33,7 @@ if (isset($_POST['submit'])) {
 				$email = "";
 				$_POST['password'] = "";
 				$_POST['pwdRepeat'] = "";
+				header("Location: login.php");
 			} else {
 				echo "<script>alert('Woops! Something Wrong Went.')</script>";
 			}

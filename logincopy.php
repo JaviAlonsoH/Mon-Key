@@ -35,9 +35,9 @@ if (isset($_POST['submit'])) {
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="resources/styles/login.css">
+    <link rel="stylesheet" type="text/css" href="resources/styles/logincopy.css">
 
-    <title>Login MonKey</title>
+    <title>Login Form - Pure Coding</title>
 </head>
 <body>
     <main>
@@ -59,16 +59,10 @@ if (isset($_POST['submit'])) {
             <div class="input-group">
                 <button id="botonLog" name="submit" class="btn">Login</button>
             </div>
-            <p class="login-register-text">Don't have an account? <a id="enlaceReg" href="signup.php">Register Here</a>.</p>
+            <p class="login-register-text" id="noCuenta">Don't have an account? <a id="enlaceReg" href="signup.php">Register Here</a>.</p>
         </form>
     </div>
     </aside>
-
-
-
-
-
-
     
 </body>
 </html>

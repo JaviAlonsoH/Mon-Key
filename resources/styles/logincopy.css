@@ -3,25 +3,31 @@
 body {
     color: white;
     font-family: "Inter";
+
 }
 
 main {
+
     background: linear-gradient(179.59deg, #ffe600 0.39%, rgba(255, 170, 0, 0.651) 99.69%);
     position: fixed;
-    width: 60%;
+    width: 100%;
     height: 100%;
     left: 0px;
     top: 0px;
+
 }
 
 aside {
     position: fixed;
-    width: 40%;
-    height: 100%;
-    left: 60%;
-    top: 0px;
+    width: 25%;
+    height: 60%;
+    left: 65%;
+    top: 140px;
     background-color: black;
+    border-radius: 20px;
 }
+
+
 
 #logoLogin {
     display: block;
@@ -30,7 +36,6 @@ aside {
     max-width: 600px;
     min-width: none;
 }
-
 
 
 #enlaceReg {
@@ -43,7 +48,8 @@ aside {
     font-weight: bold;
     font-size: 40px;
     line-height: 48px;
-    margin-top: 100px;
+    margin-top: 70px;
+    margin-left: -60px;
 }
 
 #formulario {
@@ -51,7 +57,7 @@ aside {
 }
 
 .campos {
-    width: 285px;
+    width: 100%;
     height: 30px;
     font-family: "Inter";
     color: white;
@@ -60,20 +66,27 @@ aside {
 }
 
 #inputEmail {
-    margin-top: 70px;
+    margin-top: 40px;
+    margin-left: -60px;
 }
 
 #inputContra {
-
+    margin-left: -60px;
     margin-top: 20px;
 }
 
 #botonLog {
     font-family: "Inter";
     background: #FFB513;
-    width: 120px;
+    width: 40%;
     height: 30px;
     margin-top: 30px;
-    margin-left: 95px;
+    margin-left: 13%;
     border-radius: 9px;
+}
+
+#noCuenta {
+    margin-top: 30px;
+    margin-left: -50px;
+
 }
