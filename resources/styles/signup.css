@@ -3,90 +3,67 @@
 body {
     color: white;
     font-family: "Inter";
-
 }
 
-main {
 
+main {
     background: linear-gradient(179.59deg, #ffe600 0.39%, rgba(255, 170, 0, 0.651) 99.69%);
     position: fixed;
-    width: 100%;
+    width: 60%;
     height: 100%;
     left: 0px;
     top: 0px;
-
 }
 
 aside {
     position: fixed;
-    width: 25%;
-    height: 60%;
-    left: 65%;
-    top: 140px;
+    width: 40%;
+    height: 100%;
+    left: 60%;
+    top: 0px;
     background-color: black;
-    border-radius: 20px;
 }
 
-
-
 #logoLogin {
-    display: block;
+    display: grid;
     margin-top: 280px;
     margin-left: 180px;
     max-width: 600px;
     min-width: none;
 }
 
-
-#enlaceReg {
-    color: #043BFF;
-}
-
-#titulo {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 48px;
-    margin-top: 70px;
-    margin-left: -60px;
-}
-
 #formulario {
-    margin-left: 100px;
+    margin-left: 50px;
+
 }
 
 .campos {
-    width: 100%;
     height: 30px;
     font-family: "Inter";
     color: white;
     border-radius: 5px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), rgba(255, 255, 255, 0.4);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        rgba(255, 255, 255, 0.4);
+    margin-top: 22px;
 }
 
-#inputEmail {
-    margin-top: 40px;
-    margin-left: -60px;
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+
 }
 
-#inputContra {
-    margin-left: -60px;
-    margin-top: 20px;
+#email {
+    width: 420px;
 }
 
-#botonLog {
+#btnRegister {
     font-family: "Inter";
     background: #FFB513;
-    width: 40%;
+    width: 120px;
     height: 30px;
     margin-top: 30px;
-    margin-left: 13%;
+    margin-left: 95px;
     border-radius: 9px;
-}
-
-#noCuenta {
-    margin-top: 30px;
-    margin-left: -50px;
-
 }

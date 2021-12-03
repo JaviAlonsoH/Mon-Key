@@ -56,39 +56,50 @@ if (isset($_POST['submit'])) {
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="resources/styles/signup.css">
 
 	<title>Register Form - Pure Coding</title>
 </head>
 <body>
-	<div class="container">
-		<form action="" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
-            <div class="input-group">
-				<input type="text" placeholder="Name" name="name" value="<?php echo $name; ?>" required>
+	<main>
+        <img id="logoLogin" src="resources/images/LogoCompleto.PNG" > 
+    </main>
+	<aside>
+		<p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
+		<form action="" method="POST" class="login-signup" id="formulario">
+			<div class="flex-container">
+            	<div class="name">
+					<input class="campos" type="text" placeholder="Name" name="name" value="<?php echo $name; ?>" required>
+				</div>
+            	<div id="lastname">
+					<input class="campos" type="text" placeholder="LastName" name="lastname" value="<?php echo $lastname; ?>" required>
+				</div>
+				<div id="username">
+					<input class="campos" type="text" placeholder="Username" name="username" value="<?php echo 	$username; ?>" required>
+				</div>
+				<div id="country">
+					<input class="campos" type="text" placeholder="Country" name="country" value="<?php echo $country; ?>" required>
+				</div>
 			</div>
-            <div class="input-group">
-				<input type="text" placeholder="LastName" name="lastname" value="<?php echo $lastname; ?>" required>
+
+			<div>
+				<input id="email"class="campos" type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
 			</div>
-			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
+
+			<div class="flex-container">
+				<div class="input-group">
+					<input class="campos" type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+            	</div>
+            	<div class="input-group">
+					<input class="campos" type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
+				</div>
 			</div>
-			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
-			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
-            </div>
-            <div class="input-group">
-				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
-			</div><div class="input-group">
-				<input type="text" placeholder="Country" name="country" value="<?php echo $country; ?>" required>
-			</div>
-			<div class="input-group">
-				<button name="submit" class="btn">Register</button>
+			<div class="input-group" >
+				<button id="btnRegister" name="submit" class="btn">Register</button>
 			</div>
 			<p class="login-register-text">Have an account? <a href="login.php">Login Here</a>.</p>
 		</form>
-	</div>
+	
+	</aside>
 </body>
 </html>
