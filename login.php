@@ -63,12 +63,5 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
     </aside>
-
-
-
-
-
-
-    
 </body>
 </html>

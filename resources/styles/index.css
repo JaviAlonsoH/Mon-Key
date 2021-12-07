@@ -1,0 +1,12 @@
+img {
+    max-width: 100%;
+    height: auto;
+    background: orangered;
+    background: radial-gradient(white 30%, orange 70%);
+}
+
+.fa-star,
+.fa-star-half {
+    color: orange;
+    padding: 3%;
+}
