@@ -6,6 +6,8 @@ require_once('dbh.php');
 //if (!isset($_SESSION['username'])) {
 //   header("Location: index.php");
 //}
+
+if (!isset($_POST['add']))
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,22 @@ require_once('dbh.php');
 </head>
 
 <body>
-    <?php echo "<h1>Welcome " . $_SESSION['username'] . "</h1>"; ?>
+    <div class="navbar">
+        <div class="navbar-wrapper">
+            <div class="logo">
+                <img src="./resources/images/LogoCompleto.PNG" alt="logo" width="10vw">
+            </div>
+            <div class="welcome">
+                <h1 style="color:black;">Welcome back, <?php echo $_SESSION['username'] ?></h1>
+            </div>
+            <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-dark">search</button>
+            </div>
+            <a href="logout.php">Logout</a>
+        </div>
+    </div>
+    
 
     <div class="container">
         <div class="row text-center py-5">
@@ -35,7 +52,7 @@ require_once('dbh.php');
         </div>
     </div>
 
-    <a href="logout.php">Logout</a>
+    
 </body>
 
 </html>

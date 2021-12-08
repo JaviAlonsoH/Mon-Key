@@ -6,6 +6,10 @@ img {
     background: radial-gradient(white 30%, orange 70%);
 }
 
+h1 {
+    margin: 0;
+}
+
 .fa-star,
 .fa-star-half {
     color: orange;
@@ -15,9 +19,44 @@ img {
 .card-title {
     height: 7vh;
     padding: 0.5em;
+    cursor: pointer;
 }
 
-button {
+.navbar {
+    width: 100%;
+    height: 12vh;
+    background: #FFB513;
+    background: linear-gradient(#FFB513  80%, #000000 100%);
+}
+
+.navbar-wrapper {
+    width: 100%;
     display: flex;
-    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.logo img {
+    width: 13vw;
+    height: 100%;
+    background: none;
+    cursor: pointer;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    
+}
+
+.welcome h1 {
+    font-size: 1.6em;
+}
+
+.input-group {
+    width: 30vw;
+    flex-wrap: nowrap;
 }
