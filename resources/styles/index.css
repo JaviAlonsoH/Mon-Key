@@ -1,6 +1,7 @@
 img {
-    max-width: 100%;
-    height: auto;
+    width: 6vw;
+    height: 30vh;
+    object-fit: cover;
     background: orangered;
     background: radial-gradient(white 30%, orange 70%);
 }
@@ -9,4 +10,14 @@ img {
 .fa-star-half {
     color: orange;
     padding: 3%;
+}
+
+.card-title {
+    height: 7vh;
+    padding: 0.5em;
+}
+
+button {
+    display: flex;
+    align-self: flex-end;
 }
