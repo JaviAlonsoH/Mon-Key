@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
         <img id="logoLogin" src="resources/images/LogoCompleto.PNG" > 
     </main>
 	<aside>
-		<p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
+		<p class="logintext" style="font-size: 2rem; font-weight: 800;">Register</p>
 		<form action="" method="POST" class="login-signup" id="formulario">
 			<div class="flex-container">
             	<div class="name">
@@ -93,11 +93,19 @@ if (isset($_POST['submit'])) {
             	<div class="input-group">
 					<input class="campos" type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
 				</div>
+				
 			</div>
+			<br>
+			<p class="termsConditions"><input type="checkbox" id="cbox1" value="first_checkbox"> I agree with the  <a href="login.php" id="Terms">Terms & Conditions</a></p>
 			<div class="input-group" >
 				<button id="btnRegister" name="submit" class="btn">Register</button>
 			</div>
-			<p class="login-register-text">Have an account? <a href="login.php">Login Here</a>.</p>
+			
+			<div id="haveCount">
+				<p>Already have an account?</p>
+				<button id="botonLog" name="submit" class="btn">Login</button>
+
+			</div>
 		</form>
 	
 	</aside>
