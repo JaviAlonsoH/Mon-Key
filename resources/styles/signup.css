@@ -72,21 +72,32 @@ aside {
     font-family: "Inter";
     background: #FFB513;
     width: 120px;
-    height: 30px;
+    height: 35px;
     margin-top: 30px;
     margin-left: 150px;
     border-radius: 9px;
 }
 
 #botonLog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: "Inter";
     border-color: #FFB513;
     background: none;
     width: 120px;
     color: #FFB513;
     height: 30px;
-    margin-left: 150px;
+    border: 2px solid;
     border-radius: 9px;
+    margin-left: 400px;
+    text-align: center;
+
+
+}
+
+#aLog {
+    text-decoration: none;
 }
 
 #haveCount {

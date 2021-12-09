@@ -102,9 +102,8 @@ if (isset($_POST['submit'])) {
 			</div>
 			
 			<div id="haveCount">
-				<p>Already have an account?</p>
-				<button id="botonLog" name="submit" class="btn">Login</button>
-
+				<p id="texto">Already have an account?</p>
+				<a href="login.php" id="aLog"><div id="botonLog">Login</div></a>
 			</div>
 		</form>
 	
