@@ -29,7 +29,15 @@ if (!isset($_POST['add']))
                 <img src="./resources/images/LogoCompleto.PNG" alt="logo" width="10vw">
             </div>
             <div class="welcome">
-                <h1 style="color:black;">Welcome back, <?php echo $_SESSION['username'] ?></h1>
+                <h1 style="color:black;">
+                    <?php 
+                        if (isset($_SESSION["username"])) {
+                            echo "Welcome back, " . $_SESSION["username"];
+                        }else{
+                            echo "Welcome";
+                        }   
+                    ?>
+                </h1>
             </div>
             <div class="input-group">
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
