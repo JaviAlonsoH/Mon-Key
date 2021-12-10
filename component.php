@@ -1,9 +1,9 @@
 <?php
 
-function component($productName, $productPrice, $productImg)
+function component($productName, $productPrice, $productImg, $productPlatform)
 {
     $element = null ?>
-    <div class="col-md-3 col-sm-6 my-md-0">
+    <div class="col-md-3 col-sm-6 m-3" id="product">
                 <form action="index.php" method="post">
                     <div class="card shadow">
                         <div>
@@ -11,6 +11,7 @@ function component($productName, $productPrice, $productImg)
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $productName ?></h5>
+                            <small class="text-secondary"><?php echo $productPlatform ?></small>
                             <h6>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>

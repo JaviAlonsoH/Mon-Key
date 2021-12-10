@@ -1,62 +1,80 @@
 img {
-    width: 6vw;
-    height: 30vh;
-    object-fit: cover;
-    background: orangered;
-    background: radial-gradient(white 30%, orange 70%);
+	width: 6vw;
+	height: 30vh;
+	object-fit: cover;
+	background: orangered;
+	background: radial-gradient(white 30%, orange 70%);
 }
 
 h1 {
-    margin: 0;
+	margin: 0;
 }
 
 .fa-star,
 .fa-star-half {
-    color: orange;
-    padding: 3%;
+	color: orange;
+	padding: 3%;
 }
 
 .card-title {
-    height: 7vh;
-    padding: 0.5em;
-    cursor: pointer;
+	font-size: 1em;
+	height: 7vh;
+	padding: 0.5em;
+	cursor: pointer;
 }
 
 .navbar {
-    width: 100%;
-    height: 12vh;
-    background: #FFB513;
-    background: linear-gradient(#FFB513  80%, #000000 100%);
+	width: 100%;
+	height: 12vh;
+	background: #ffb513;
+	background: linear-gradient(#ffb513 80%, #000000 100%);
 }
 
 .navbar-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
 }
 
 .logo img {
-    width: 13vw;
-    height: 100%;
-    background: none;
-    cursor: pointer;
+	width: 13vw;
+	height: 100%;
+	background: none;
+	cursor: pointer;
 }
 
 .welcome {
-    display: flex;
-    align-items: center;
-    
+	display: flex;
+	align-items: center;
 }
 
 .welcome h1 {
-    font-size: 1.6em;
+	font-size: 1.6em;
 }
 
 .input-group {
-    width: 30vw;
-    flex-wrap: nowrap;
+	width: 30vw;
+	flex-wrap: nowrap;
+}
+
+.wrapper {
+	display: flex;
+	width: 100%;
+}
+
+#sidebar {
+	width: 250px;
+	padding: 2vh;
+	position: sticky;
+	top: 0;
+	float: right;
+	height: 100vh;
+	z-index: 999;
+	color: #000;
+	transition: all 0.3s;
+	border: 1px solid #000;
 }

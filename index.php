@@ -35,17 +35,45 @@ if (!isset($_POST['add']))
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <button type="button" class="btn btn-outline-dark">search</button>
             </div>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php" class="btn btn-outline-dark">Logout</a>
         </div>
     </div>
-    
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Cart</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Products on cart</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
 
     <div class="container">
         <div class="row text-center py-5">
             <?php
             $result = getData($conn);
             while ($row = mysqli_fetch_assoc($result)) {
-                component($row['name'], $row['price'], $row['image']);
+                component($row['name'], $row['price'], $row['image'], $row['platform']);
             }
 
             ?>
