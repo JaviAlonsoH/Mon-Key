@@ -88,11 +88,11 @@ function cartElementSmall($productName, $productPrice, $productImg, $productPlat
                                     
                                 </div>
                                 <div class="col-md-6">
-                                <button type="submit" class="btn btn-warning">Save for later</button>
+                                <button type="submit" class="btn btn-warning m-3">Save for later</button>
                                     
                                 </div>
                                 <div class="col-md-6">
-                                <button type="submit" class="btn btn-danger mx-2" name="remove">Remove</button>
+                                <button type="submit" class="btn btn-danger m-3" name="remove">Remove</button>
                                 </div>
             </div>
         </div>
