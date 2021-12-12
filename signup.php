@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
 			
 			<div id="haveCount">
 				<p id="texto">Already have an account?</p>
-				<button  class="btn btn-outline-warning"><a href="login.php" style="text-decoration:none;color:white">Login</a></button>
+				<a href="login.php" class="btn btn-outline-warning" role="button">Login</a>
 			</div>
 		</form>
 	

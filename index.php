@@ -7,7 +7,32 @@ require_once('dbh.php');
 //   header("Location: index.php");
 //}
 
-if (!isset($_POST['add']))
+if (isset($_POST['add'])) {
+    //print($_POST['product_id']);
+    if(isset($_SESSION['cart'])) {
+
+        $item_array_id = array_column($_SESSION['cart'], "product_id");
+
+        if(in_array($_POST['product_id'], $item_array_id)) {
+            echo "<script>alert('Product is already in the cart');</script>";
+            echo "<script>window.location='index.php'</script>";
+        } else {
+            $count = count($_SESSION['cart']);
+            $item_array = array(
+                'product_id' => $_POST['product_id'],
+            );
+            $_SESSION['cart'][$count] = $item_array;
+            print_r($_SESSION['cart']);
+        }
+
+    } else {
+        $item_array = array(
+            'product_id' => $_POST['product_id'],
+        );
+        $_SESSION['cart'][0] = $item_array;
+        print_r($_SESSION['cart']);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,76 +44,91 @@ if (!isset($_POST['add']))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./resources/styles/index.css">
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Welcome</title>
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="navbar-wrapper">
-            <div class="logo">
-                <img src="./resources/images/LogoCompleto.PNG" alt="logo" width="10vw">
-            </div>
-            <div class="welcome">
-                <h1 style="color:black;">
-                    <?php 
-                        if (isset($_SESSION["username"])) {
-                            echo "Welcome back, " . $_SESSION["username"];
-                        }else{
-                            echo "Welcome";
-                        }   
+    
+    <?php require_once('header.php');?>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <div class="list-group list-group-flush overflow-auto vh-100">
+                <div class="sidebar-brand">
+                    <h5 class="m-4">
+                            <i class="fas fa-shopping-cart text-dark"></i>
+                            Cart
+                            <?php
+
+                            if(isset($_SESSION['cart'])) {
+                                $count = count($_SESSION['cart']);
+                                echo '<span id="cart-count" class="text-light bg-dark">' . $count . '</span>';
+                            } else {
+                                echo '<span id="cart-count" class="text-light bg-dark">0</span>';
+                            }
+
+                            ?>
+                    </h5>
+                </div>
+                <?php
+                        $total = 0;
+                        if(isset($_SESSION['cart'])) {
+                            $productId = array_column($_SESSION['cart'], 'product_id');
+                            $result = getData($conn);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                foreach ($productId as $id) {
+                                    if($row['id'] == $id) {
+                                        cartElementSmall($row['name'], $row['price'], $row['image'], $row['platform'], $row['id']);
+                                        $total = $total + $row['price'];
+                                    }
+                                }
+                            }
+                        } else {
+                            echo '<h3>Cart is empty</h3>';
+                        }
                     ?>
-                </h1>
+                <hr>
+            <div class="col-md-12">
+                <h2 class="px-2 m-2">
+                    Total: $<?php echo $total ?>
+                </h2>
             </div>
-            <div class="input-group">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-dark">search</button>
+            <hr>
+            <a href="cart.php" role="button"><button type="button" class="btn btn-success m-3"> Check Out</button></a>
+        </div>
+            
+    </div>
+        
+        
+    
+    <div id="page-content-wrapper">
+            <div class="container-fluid">
+            <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Toggle Menu</a>
+                <div class="row text-center py-5 d-flex justify-content-start">
+                    
+                    <?php
+                        $result = getData($conn);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            component($row['name'], $row['price'], $row['image'], $row['platform'], $row['id']);
+                        }
+
+                    ?>
+                </div>
+
             </div>
-            <a href="logout.php" class="btn btn-outline-dark">Logout</a>
-        </div>
-    </div>
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Cart</h3>
         </div>
 
-        <ul class="list-unstyled components">
-            <p>Products on cart</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                </ul>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-
-    </nav>
-
-    <div class="container">
-        <div class="row text-center py-5">
-            <?php
-            $result = getData($conn);
-            while ($row = mysqli_fetch_assoc($result)) {
-                component($row['name'], $row['price'], $row['image'], $row['platform']);
-            }
-
-            ?>
         </div>
-    </div>
 
     
 </body>
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
 </html>
