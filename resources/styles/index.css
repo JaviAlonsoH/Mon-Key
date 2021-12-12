@@ -98,6 +98,11 @@ header {
 	padding: 3% 2%;
 }
 
+#cart-list {
+    height: 50%;
+    overflow: hidden;
+}
+
 
 /** sidebar */
 
@@ -124,7 +129,7 @@ header {
     position: fixed;
     right: 250px;
     width: 0;
-    height: 200vh;
+    height: 100%;
     margin-right: -250px;
     overflow: auto;
     background: #ffffff;
@@ -153,6 +158,7 @@ header {
 
 .sidebar-nav {
     width: 50vw;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     list-style: none;

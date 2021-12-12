@@ -72,6 +72,7 @@ if (isset($_POST['add'])) {
                             ?>
                     </h5>
                 </div>
+                <div id="cart-list" class="list-group list-group-flush overflow-auto">
                 <?php
                         $total = 0;
                         if(isset($_SESSION['cart'])) {
@@ -80,8 +81,14 @@ if (isset($_POST['add'])) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 foreach ($productId as $id) {
                                     if($row['id'] == $id) {
-                                        cartElementSmall($row['name'], $row['price'], $row['image'], $row['platform'], $row['id']);
-                                        $total = $total + $row['price'];
+                                        ?>
+                                        <div class="list-group-item list-group-item-action bg-light p-3">
+                                            <?php 
+                                            cartElementSmall($row['name'], $row['price'], $row['image'], $row['platform'], $row['id']);
+                                            $total = $total + $row['price'];
+                                            ?>
+                                        </div>
+                                        <?php
                                     }
                                 }
                             }
@@ -89,6 +96,9 @@ if (isset($_POST['add'])) {
                             echo '<h3>Cart is empty</h3>';
                         }
                     ?>
+                </div>
+                
+                
                 <hr>
             <div class="col-md-12">
                 <h2 class="px-2 m-2">
@@ -105,7 +115,7 @@ if (isset($_POST['add'])) {
     
     <div id="page-content-wrapper">
             <div class="container-fluid">
-            <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Toggle Menu</a>
+            <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Display Cart</a>
                 <div class="row text-center py-5 d-flex justify-content-start">
                     
                     <?php

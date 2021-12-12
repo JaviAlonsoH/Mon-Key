@@ -67,7 +67,7 @@ function cartElement($productName, $productPrice, $productImg, $productId) {
 function cartElementSmall($productName, $productPrice, $productImg, $productPlatform, $productId) {
     $element = null ?>
     <form action="cart.php?action=remove&id=<?php echo $productId ?>" method="post" class="cart-items">
-                        <div class="border rounded">
+                        <div class="border rounded p-3">
                             <div class="row bg-white">
                                 <div class="col-md-3 col-lg-3 pl-0">
                                     <img src="<?php echo 'data:image/jpeg; base64,' . base64_encode($productImg) ?>" alt="Product Image" class="img-fluid">
@@ -85,10 +85,15 @@ function cartElementSmall($productName, $productPrice, $productImg, $productPlat
                                     
                                     </div>
                                     <small><?php echo $productPlatform ?></small>
-                                </div>
-                                <div class="col-md-3 py-3">
                                     
-                </div>
+                                </div>
+                                <div class="col-md-6">
+                                <button type="submit" class="btn btn-warning">Save for later</button>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                <button type="submit" class="btn btn-danger mx-2" name="remove">Remove</button>
+                                </div>
             </div>
         </div>
     </form>
