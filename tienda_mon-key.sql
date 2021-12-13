@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 10-12-2021 a las 13:43:38
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-12-2021 a las 16:15:58
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -22,6 +22,28 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `tienda_mon-key` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `tienda_mon-key`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `daily_users`
+--
+
+CREATE TABLE `daily_users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `daily_users`
+--
+
+INSERT INTO `daily_users` (`id`, `email`, `password`) VALUES
+(1, 'sergio@gmail.com', '1234'),
+(2, 'sergio@gmail.com', '1234'),
+(3, 'sergio@gmail.com', '1234'),
+(4, 'sergio@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -116,6 +138,12 @@ INSERT INTO `user` (`id`, `name`, `lastname`, `username`, `password`, `country`,
 --
 
 --
+-- Indices de la tabla `daily_users`
+--
+ALTER TABLE `daily_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
@@ -137,6 +165,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `daily_users`
+--
+ALTER TABLE `daily_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `products`

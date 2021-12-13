@@ -20,6 +20,16 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username'];
         header("Location: index.php");
+
+           /*--Usuarios diarios--*/
+			$sql = "INSERT INTO daily_users (email, password)
+					VALUES ('$email', '$pwd');";
+			$result = mysqli_query($conn, $sql);
+
+             /*$sql = " CREATE EVENT myevent
+                ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 10 SECOND
+                DO
+                DELETE FROM daily_users ";*/
     } else {
         echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
     }
